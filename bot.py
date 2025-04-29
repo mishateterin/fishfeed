@@ -28,7 +28,7 @@ class FeedingSystem:
     
     def next_monday(self):
         today = datetime.now()
-        return (today + timedelta(days=(7 - today.weekday()))\
+        return (today + timedelta(days=(7 - today.weekday())))\
             .strftime("%Y-%m-%d")
     
     def check_weekly_reset(self):
