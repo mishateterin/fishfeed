@@ -82,7 +82,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def feed(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
-    web_app_url = f"https://mishateterin.github.io/fishfeeder//feed?user_id={user.id}&username={user.username or user.first_name}"
+    web_app_url = f"https://localhost:5000/feed?user_id={user.id}&username={user.username or user.first_name}"
     
     await update.message.reply_text(
         "Нажмите кнопку чтобы покормить рыбок:",
