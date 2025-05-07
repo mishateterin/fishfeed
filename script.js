@@ -42,3 +42,19 @@ function feedFish(userId, username, sticks) {
         statusElement.className = 'status error';
     }
 }
+
+function sendFeedingData(sticks) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const data = {
+        user_id: urlParams.get('user_id') || "unknown",
+        username: urlParams.get('username') || "Гость",
+        sticks: parseInt(sticks)
+    };
+    
+    console.log("Отправка данных в бота:", data); // Логируем
+    
+    if (window.Telegram?.WebApp) {
+        Telegram.WebApp.sendData(JSON.stringify(data));
+        Telegram.WebApp.close();
+    }
+}
